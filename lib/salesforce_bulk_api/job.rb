@@ -136,7 +136,7 @@ module SalesforceBulkApi
           sobject_xml << "<#{k}>"
           sobject_xml << build_sobject(r[k])
           sobject_xml << "</#{k}>"
-        elsif k.to_s.include? "."
+        elsif !r[k].to_s.empty? && k.to_s.include?(".")
           sobject_xml << build_relationship_sobject(k, r[k])
         elsif !r[k].to_s.empty?
           sobject_xml << "<#{k}>"
